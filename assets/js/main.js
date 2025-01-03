@@ -9,27 +9,26 @@ document.addEventListener("DOMContentLoaded", function () {
     const urlInput = document.getElementById('urlInput');
     const fileInput = document.getElementById('fileInput');
 
-    // Handle URL input and fetch the README
-    loadUrlButton.addEventListener('click', function () {
+   // Handle URL input and fetch the README
+   const handleUrlFetch = () => {
         let url = urlInput.value.trim();
-
-        if (url.includes('github.com') && url.includes('/blob/')) {
+        if (!url) return alert('Please enter a URL.');
+        if (url.includes('github.com') && url.includes('/blob/'))
             url = url.replace('github.com', 'raw.githubusercontent.com').replace('/blob/', '/');
-        }
-
-        if (!url) {
-            alert('Please enter a URL.');
-            return;
-        }
-
         fetch(url)
-            .then(response => response.text())
+            .then(res => res.text())
             .then(data => {
                 content.innerHTML = marked.parse(data);
                 content.style.display = 'block';
             })
-            .catch(error => alert('Error loading the URL.'));
-    });
+            .catch(() => alert('Error loading the URL.'));
+    };
+
+    // Bind click event on the button
+    loadUrlButton.addEventListener('click', handleUrlFetch);
+
+    // Bind "Enter" key event on the input
+    urlInput.addEventListener('keydown', e => e.key === 'Enter' && handleUrlFetch());
 
     // Handle file selection and display the README
     fileInput.addEventListener('change', function (event) {
