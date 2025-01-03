@@ -29,6 +29,7 @@
     --border-light: #e0e0e0;
     --border-dark: #444;
     --shadow-light: rgba(0, 0, 0, 0.1);
+    --container-width: 90%;
 }
 
 body {
@@ -44,8 +45,8 @@ body {
 }
 
 .container {
-    width: 90%;
-    max-width: 600px;
+    width: var(--container-width);
+    max-width: 1000px;
     background: var(--card-light);
     border-radius: 10px;
     box-shadow: 0 6px 15px var(--shadow-light);
@@ -154,6 +155,27 @@ body {
 }
 ::-webkit-scrollbar-track {
     background: var(--bg-light);
+}
+
+/* Tablet */
+@media (max-width: 1200px) {
+    .container {
+        width: 100%;
+        padding: 0.5rem 1rem;
+    }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    body {
+        margin: 0;
+    }
+    .container {
+        padding: 1rem;;
+    }
+    .markdown-body {
+        padding: 1rem;
+    }
 }
 
 /* Dark mode */
