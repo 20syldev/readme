@@ -2,7 +2,7 @@
   <a href="https://readme.sylvain.pro"><img src="https://readme.sylvain.pro/assets/images/logo.png" alt="Logo" width="25%" height="auto"></a>
 
   # README - File Reader Interface
-  [![Version](https://custom-icon-badges.demolab.com/badge/Version%20:-v1.0.0-6479ee?logo=readme.sylvain.pro&labelColor=23272A)](https://github.com/20syldev/readme/releases/latest)
+  [![Version](https://custom-icon-badges.demolab.com/badge/Version%20:-v1.0.1-6479ee?logo=readme.sylvain.pro&labelColor=23272A)](https://github.com/20syldev/readme/releases/latest)
 </div>
 
 ---
