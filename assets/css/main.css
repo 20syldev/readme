@@ -175,6 +175,7 @@ body {
     }
     .container {
         padding: 1rem;
+        border-radius: 0;
     }
     .markdown-body {
         padding: 1rem;
