@@ -9,8 +9,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const urlInput = document.getElementById('urlInput');
     const fileInput = document.getElementById('fileInput');
 
-   // Handle URL input and fetch the README
-   const handleUrlFetch = () => {
+    // Handle URL input and fetch the README
+    const handleUrlFetch = () => {
         let url = urlInput.value.trim();
         if (!url) return alert('Please enter a URL.');
         if (url.includes('github.com') && url.includes('/blob/'))
