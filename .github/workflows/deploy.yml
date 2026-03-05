@@ -1,4 +1,4 @@
-name: Deploy readme.sylvain.pro
+name: Deploy readme.sylvain.sh
 
 on:
   push:
