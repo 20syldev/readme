@@ -11,10 +11,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Handle URL input and fetch the README
     const handleUrlFetch = () => {
-        let url = urlInput.value.trim();
-        if (!url) return alert('Please enter a URL.');
-        if (url.includes('github.com') && url.includes('/blob/'))
-            url = url.replace('github.com', 'raw.githubusercontent.com').replace('/blob/', '/');
+        const raw = urlInput.value.trim();
+        if (!raw) return alert('Please enter a URL.');
+        let url;
+        try {
+            const parsed = new URL(raw);
+            if ((parsed.hostname === 'github.com' || parsed.hostname === 'www.github.com') && parsed.pathname.includes('/blob/')) {
+                parsed.hostname = 'raw.githubusercontent.com';
+                parsed.pathname = parsed.pathname.replace('/blob/', '/');
+            }
+            url = parsed.toString();
+        } catch {
+            return alert('Please enter a valid URL.');
+        }
         fetch(url)
             .then(res => res.text())
             .then(data => {
